@@ -85,8 +85,8 @@ emon -process-pyedp $config_file
 rm -rf *.csv
 ####### perf post process
 cd $PERF_ODATA.data
-perf report -i data --call-graph=no > $PERF_ODATA.nocg.txt
+perf report -i data --call-graph=no --no-children > $PERF_ODATA.nocg.txt
 perf report -i data --no-children > $PERF_ODATA.nochildren.txt
 
-perf report -i data --call-graph=no -C 0-15 > $PERF_ODATA.nocg.c0-15.txt
+perf report -i data --call-graph=no --no-children -C 0-15 > $PERF_ODATA.nocg.c0-15.txt
 perf report -i data --no-children -C 0-15 > $PERF_ODATA.nochildren.c0-15.txt
